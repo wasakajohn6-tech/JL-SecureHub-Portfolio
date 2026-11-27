@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JL SecureHub | Inventory Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <div class="logo">JL</div>
+        <div>
+            <h2>JL SecureHub</h2>
+            <p>Inventory Management System</p>
+        </div>
+    </div>
+    <span class="status">● SYSTEM ONLINE</span>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <p class="eyebrow">MANAGEMENT DASHBOARD</p>
+            <h1>Inventory Overview</h1>
+            <p>Monitor and manage your business stock.</p>
+        </div>
+        <button id="addProductBtn">+ Add Product</button>
+    </section>
+
+    <section class="stats">
+        <article class="stat-card">
+            <p>Total Products</p>
+            <h2 id="totalProducts">0</h2>
+        </article>
+        <article class="stat-card">
+            <p>Total Stock Units</p>
+            <h2 id="totalStock">0</h2>
+        </article>
+        <article class="stat-card">
+            <p>Low Stock Items</p>
+            <h2 id="lowStock">0</h2>
+        </article>
+        <article class="stat-card">
+            <p>Inventory Value</p>
+            <h2 id="inventoryValue">KES 0</h2>
+        </article>
+    </section>
+
+    <section class="inventory">
+        <div class="section-heading">
+            <div>
+                <h2>Product Inventory</h2>
+                <p>Manage your registered products</p>
+            </div>
+            <input type="search" id="searchInput"
+                   placeholder="Search products...">
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price (KES)</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <tr>
+                        <td colspan="6">No products registered yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<div class="modal" id="productModal">
+    <div class="modal-content">
+        <div class="modal-heading">
+            <h2 id="modalTitle">Add New Product</h2>
+            <button id="closeModal" class="close-btn">×</button>
+        </div>
+
+        <form id="productForm">
+            <input type="hidden" id="productId">
+
+            <label for="productName">Product Name</label>
+            <input type="text" id="productName" required>
+
+            <label for="category">Category</label>
+            <input type="text" id="category" required>
+
+            <label for="price">Unit Price (KES)</label>
+            <input type="number" id="price" min="0.01"
+                   step="0.01" required>
+
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" min="0"
+                   step="1" required>
+
+            <label for="minimumStock">Minimum Stock Level</label>
+            <input type="number" id="minimumStock" min="0"
+                   step="1" value="5" required>
+
+            <button type="submit" class="save-btn">Save Product</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>© <span id="year"></span> JL SecureHub. All rights reserved.</p>
+    <p>Secure Technology. Smarter Future.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
